@@ -1,7 +1,6 @@
 import { Inter } from '@next/font/google'
 import type { GetStaticProps, NextPage } from "next";
 import { IArticleFields } from "../src/@types/contentful";
-import styles from "../styles/Home.module.css";
 import ContentService from "../src/util/content-service";
 import ArticleLink from '@/components/ArticleLink';
 
@@ -12,16 +11,11 @@ interface Props {
 
 const Home: NextPage<Props> = ({ articles }) => { 
   return ( 
-    <div className={styles.container}>
-    <main className={styles.main}>
-      
-      <div className={styles.grid}>
-        {articles.map((article, i) => (
+    <div className='flex-col sm:flex '>
+      {articles.map((article, i) => (
           <ArticleLink key={i} article={article} />
         ))}
-      </div>
-    </main>
-  </div>
+    </div>
   )
 };
 

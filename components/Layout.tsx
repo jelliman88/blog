@@ -1,5 +1,4 @@
-import { ReactNode, useState, useEffect } from 'react';
-import DarkModeButton from './DarkModeButton';
+import { ReactNode } from 'react';
 import Nav from './Nav';
 import Head from 'next/head';
 
@@ -20,7 +19,7 @@ const Layout= ({ children }:Props) => {
       <link rel="icon" href="/favicon.ico" />
     </Head>
         <Nav />
-        <DarkModeButton />
+        
         {children}
     </div>
   );
