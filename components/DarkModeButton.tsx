@@ -15,18 +15,18 @@ const DarkModeButton = () => {
        <>
         {currentTheme === 'dark' ? (
             <button
-              className="bg-black-700 hover:bg-black w-28 rounded-md border-purple-400 border-2 p-4"
+              className="bg-black-700"
               onClick={() => setTheme('light')}
             >
               {' '}
-              <Image src="/vercel.svg" alt="logo" height="50" width="50" />
+              <Image src="/sun.png" alt="logo" height="35" width="35" />
             </button>
           ) : (
             <button
-              className="bg-gray-100 w-28 rounded-md border-purple-400 border-2 p-4 hover:bg-gray-300"
+              className="bg-gray-100"
               onClick={() => setTheme('dark')}
             >
-              <Image src="/vercel.svg" alt="logo" height="50" width="50" />
+              <Image className='' src="/moon.png" alt="logo" height="35" width="35" />
             </button>
           )}</>
     );

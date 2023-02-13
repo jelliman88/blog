@@ -10,7 +10,6 @@ interface Props {
   
 
 const article:NextPage<Props> = ({ article }) => {
-    
     return (
         <Article article={article}/>
     );
@@ -38,7 +37,7 @@ export const getStaticProps: GetStaticProps<Props, { slug: string }> = async (
   export const getStaticPaths: GetStaticPaths = async () => {
     const articles =
       await ContentService.instance.getEntriesByType<IArticleFields>("article");
-  
+    
     return {
       paths: articles.map((article) => ({
         params: {

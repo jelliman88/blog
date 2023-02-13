@@ -5,19 +5,28 @@ import { Document } from "@contentful/rich-text-types";
 
 export interface IArticleFields {
   /** Title */
-  title?: string | undefined;
+  title: string;
 
   /** Slug */
-  slug?: string | undefined;
+  slug: string;
 
-  /** Description */
-  description?: string | undefined;
+  /** Body */
+  body?: Document | undefined;
 
-  /** Publish date */
-  publishDate?: string | undefined;
+  /** Related Pages */
+  relatedPages?: IArticle[] | undefined;
 
-  /** Content */
-  content?: Document | undefined;
+  /** SEO Metadata */
+  seo?: ISeoMetadata | undefined;
+
+  /** image */
+  image?: Asset | undefined;
+
+  /** rating */
+  rating?: number | undefined;
+
+  /** published */
+  published?: string | undefined;
 }
 
 export interface IArticle extends Entry<IArticleFields> {
@@ -37,20 +46,52 @@ export interface IArticle extends Entry<IArticleFields> {
   };
 }
 
-export interface IComponentAuthorFields {
-  /** Internal name */
-  internalName: string;
+export interface IComponentTextFields {
+  /** Title */
+  title?: string | undefined;
 
-  /** Name */
+  /** Text */
+  text: Document;
+}
+
+export interface IComponentText extends Entry<IComponentTextFields> {
+  sys: {
+    id: string;
+    type: string;
+    createdAt: string;
+    updatedAt: string;
+    locale: string;
+    contentType: {
+      sys: {
+        id: "componentText";
+        linkType: "ContentType";
+        type: "Link";
+      };
+    };
+  };
+}
+
+export interface ISeoMetadataFields {
+  /** Internal Name */
   name: string;
 
-  /** Avatar */
-  avatar?: Asset | undefined;
+  /** SEO Title */
+  seoTitle?: string | undefined;
+
+  /** Description */
+  description?: string | undefined;
+
+  /** Keywords */
+  keywords?: string[] | undefined;
+
+  /** Hide page from search engines (noindex) */
+  no_index?: boolean | undefined;
+
+  /** Exclude links from search rankings? (nofollow) */
+  no_follow?: boolean | undefined;
 }
 
-/** To have author-related properties */
-
-export interface IComponentAuthor extends Entry<IComponentAuthorFields> {
+export interface ISeoMetadata extends Entry<ISeoMetadataFields> {
   sys: {
     id: string;
     type: string;
@@ -59,7 +100,7 @@ export interface IComponentAuthor extends Entry<IComponentAuthorFields> {
     locale: string;
     contentType: {
       sys: {
-        id: "componentAuthor";
+        id: "seoMetadata";
         linkType: "ContentType";
         type: "Link";
       };
@@ -67,178 +108,10 @@ export interface IComponentAuthor extends Entry<IComponentAuthorFields> {
   };
 }
 
-export interface IComponentRichImageFields {
-  /** Internal name */
-  internalName: string;
+export type CONTENT_TYPE = "article" | "componentText" | "seoMetadata";
 
-  /** Image */
-  image: Asset;
+export type IEntry = IArticle | IComponentText | ISeoMetadata;
 
-  /** Caption */
-  caption?: string | undefined;
-
-  /** Full width */
-  fullWidth?: boolean | undefined;
-}
-
-/** To describe an image used in rich text fields */
-
-export interface IComponentRichImage extends Entry<IComponentRichImageFields> {
-  sys: {
-    id: string;
-    type: string;
-    createdAt: string;
-    updatedAt: string;
-    locale: string;
-    contentType: {
-      sys: {
-        id: "componentRichImage";
-        linkType: "ContentType";
-        type: "Link";
-      };
-    };
-  };
-}
-
-export interface IComponentSeoFields {
-  /** Internal name */
-  internalName: string;
-
-  /** Page title */
-  pageTitle: string;
-
-  /** Page description */
-  pageDescription?: string | undefined;
-
-  /** Canonical URL */
-  canonicalUrl?: string | undefined;
-
-  /** nofollow */
-  nofollow: boolean;
-
-  /** noindex */
-  noindex: boolean;
-
-  /** Share images */
-  shareImages?: Asset[] | undefined;
-}
-
-/** To have SEO-related properties to the pages we render */
-
-export interface IComponentSeo extends Entry<IComponentSeoFields> {
-  sys: {
-    id: string;
-    type: string;
-    createdAt: string;
-    updatedAt: string;
-    locale: string;
-    contentType: {
-      sys: {
-        id: "componentSeo";
-        linkType: "ContentType";
-        type: "Link";
-      };
-    };
-  };
-}
-
-export interface IPageBlogPostFields {
-  /** Internal name */
-  internalName: string;
-
-  /** SEO fields */
-  seoFields?: IComponentSeo | undefined;
-
-  /** Slug */
-  slug: string;
-
-  /** Author */
-  author?: IComponentAuthor | undefined;
-
-  /** Published date */
-  publishedDate: string;
-
-  /** Title */
-  title: string;
-
-  /** Subtitle */
-  shortDescription?: string | undefined;
-
-  /** Featured image */
-  featuredImage: Asset;
-
-  /** Content */
-  content: Document;
-
-  /** Related blog posts */
-  relatedBlogPosts?: IPageBlogPost[] | undefined;
-}
-
-/** To create individual blog posts */
-
-export interface IPageBlogPost extends Entry<IPageBlogPostFields> {
-  sys: {
-    id: string;
-    type: string;
-    createdAt: string;
-    updatedAt: string;
-    locale: string;
-    contentType: {
-      sys: {
-        id: "pageBlogPost";
-        linkType: "ContentType";
-        type: "Link";
-      };
-    };
-  };
-}
-
-export interface IPageLandingFields {
-  /** Internal name */
-  internalName: string;
-
-  /** SEO fields */
-  seoFields?: IComponentSeo | undefined;
-
-  /** Featured blog post */
-  featuredBlogPost?: IPageBlogPost | undefined;
-}
-
-/** To have an entry point for the app (e.g. Homepage) */
-
-export interface IPageLanding extends Entry<IPageLandingFields> {
-  sys: {
-    id: string;
-    type: string;
-    createdAt: string;
-    updatedAt: string;
-    locale: string;
-    contentType: {
-      sys: {
-        id: "pageLanding";
-        linkType: "ContentType";
-        type: "Link";
-      };
-    };
-  };
-}
-
-export type CONTENT_TYPE =
-  | "article"
-  | "componentAuthor"
-  | "componentRichImage"
-  | "componentSeo"
-  | "pageBlogPost"
-  | "pageLanding";
-
-export type IEntry =
-  | IArticle
-  | IComponentAuthor
-  | IComponentRichImage
-  | IComponentSeo
-  | IPageBlogPost
-  | IPageLanding;
-
-export type LOCALE_CODE = "de-DE" | "en-US";
+export type LOCALE_CODE = "en-US";
 
 export type CONTENTFUL_DEFAULT_LOCALE_CODE = "en-US";

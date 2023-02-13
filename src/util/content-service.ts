@@ -1,6 +1,7 @@
 import { createClient } from "contentful";
 import { config } from "dotenv";
-import { IArticleFields } from "../@types/contentful"
+import { IArticleFields } from "@/src/@types/contentful";
+
 /*
  * We tell TypeScript that those environment variables are always defined.
  * If you want to learn more about this madness, read:
@@ -16,7 +17,6 @@ declare global {
 }
 
 config();
-
 export default class ContentService {
   static get instance() {
     return new ContentService();
