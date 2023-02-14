@@ -27,6 +27,9 @@ export interface IArticleFields {
 
   /** published */
   published?: string | undefined;
+
+  /** type */
+  type?: string | undefined;
 }
 
 export interface IArticle extends Entry<IArticleFields> {
@@ -108,9 +111,35 @@ export interface ISeoMetadata extends Entry<ISeoMetadataFields> {
   };
 }
 
-export type CONTENT_TYPE = "article" | "componentText" | "seoMetadata";
+export interface ITypesFields {
+  /** restaurant */
+  restaurant?: string | undefined;
+}
 
-export type IEntry = IArticle | IComponentText | ISeoMetadata;
+export interface ITypes extends Entry<ITypesFields> {
+  sys: {
+    id: string;
+    type: string;
+    createdAt: string;
+    updatedAt: string;
+    locale: string;
+    contentType: {
+      sys: {
+        id: "types";
+        linkType: "ContentType";
+        type: "Link";
+      };
+    };
+  };
+}
+
+export type CONTENT_TYPE =
+  | "article"
+  | "componentText"
+  | "seoMetadata"
+  | "types";
+
+export type IEntry = IArticle | IComponentText | ISeoMetadata | ITypes;
 
 export type LOCALE_CODE = "en-US";
 
