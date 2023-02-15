@@ -14,4 +14,7 @@ module.exports = {
   plugins: [
     require('@tailwindcss/typography'),
   ],
+  variants: {
+    animation: ["motion-safe"]
+}
 }

@@ -10,23 +10,29 @@ interface Props {
 }
 
 const Home: NextPage<Props> = ({ articles }) => {
-  const [filter, setFilter] = useState<string | null>('all');
+  const [filter, setFilter] = useState<string>('all');
   const types: Array<String> = ['all'];
+
   articles.map((article) => {
-    const type: string = article.type!;
-    if (!types.includes(type)) {
-      types.push(type);
-    }
-  });
+    const tags = article.seo?.fields.keywords
+    if (tags) {
+      tags.map((tag) => {
+        if (!types.includes(tag)) {
+          types.push(tag)
+        }
+      })
+    };
+    })
+   
   return (
-    <div>
+    <div className='mb-auto'>
       <div className='flex justify-center'>
-      <Filter types={types} setFilter={setFilter} />
+      <Filter filter={filter} types={types} setFilter={setFilter} articles={articles} />
       </div>
       
       <div className='flex flex-col sm:flex-row sm:justify-evenly'>
       {articles.map((article, i) => (
-        filter === 'all' || filter === article.type ?
+        filter === 'all' || article.seo?.fields.keywords?.includes(filter) ?
         <ArticleLink key={i} article={article} types={types} />: null
       )
       )}

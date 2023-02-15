@@ -5,7 +5,6 @@ import { BLOCKS } from "@contentful/rich-text-types";
 
 
 const Article = ( { article }: any) => {
-    
     const url = 'https:' + article.image.fields.file.url
         return (
         <div className='text-center'>
@@ -17,7 +16,7 @@ const Article = ( { article }: any) => {
             </div>
                 
         </div>
-            <div className='mx-40'>
+            <div className='sm:mx-40'>
             <Image className='m-auto p-5 sm:float-left sm:ml-52 sm:mr-10 sm:mt-10' src={url} alt="thumbmnail" height="300" width="300" />
             <div className='m-5 sm:px-48 py-10 sm:text-left'>
               <div className="prose dark:prose-invert max-w-none font-sans">

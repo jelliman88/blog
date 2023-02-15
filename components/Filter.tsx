@@ -1,9 +1,13 @@
-const Filter = ({ types, setFilter }: any) => {
+const Filter = ({ filter, types, setFilter }: any) => {
+    const unselected: string = 'text-2xl m-2 p-4 hover:text-white hover:shadow-[inset_10rem_0_0_0] hover:shadow-black dark:hover:shadow-white dark:hover:text-black duration-[200ms,200ms] transition-[color,box-shadow] duration-1000'
+    const selected: string = 'text-2xl m-2 p-4 text-white bg-black dark:bg-white dark:text-black'
     return (
         <div className="font-['Calistoga']">
             <div className="hidden sm:block">
             {types.map((type: string, index: number) => (
-                <button key={index} className='text-2xl m-2 p-3 rounded' onClick={() => setFilter(type)}>{type}</button>
+                <button key={index} 
+                className={filter === type ? selected : unselected}
+                onClick={() => setFilter(type)}>{type}</button>
             ))}
             </div>
           

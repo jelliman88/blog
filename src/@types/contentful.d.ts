@@ -27,9 +27,6 @@ export interface IArticleFields {
 
   /** published */
   published?: string | undefined;
-
-  /** type */
-  type?: string | undefined;
 }
 
 export interface IArticle extends Entry<IArticleFields> {
