@@ -11,7 +11,7 @@ const Filter = ({ filter, types, setFilter }: any) => {
             ))}
             </div>
           
-            <select className="sm:hidden rounded text-2xl" onChange={(e) => {setFilter(e.target.value)}}>
+            <select className="sm:hidden rounded text-2xl dark:bg-gray-800" onChange={(e) => {setFilter(e.target.value)}}>
             {types.map((type: string, index: number) => (
                 <option key={index} className='m-2 p-3 rounded' value={type}>{type}</option>
             ))}
