@@ -1,5 +1,5 @@
 const Filter = ({ filter, types, setFilter }: any) => {
-    const unselected: string = 'text-2xl m-2 p-4 hover:text-white hover:shadow-[inset_10rem_0_0_0] hover:shadow-black dark:hover:shadow-white dark:hover:text-black duration-[200ms,200ms] transition-[color,box-shadow] duration-1000'
+    const unselected: string = 'text-2xl m-2 p-4 hover:shadow-[inset_13rem_0_0_0] hover:shadow-pink-500 duration-[1500ms,200ms] transition-[box-shadow] duration-1000'
     const selected: string = 'text-2xl m-2 p-4 text-white bg-black dark:bg-white dark:text-black'
     return (
         <div className="font-['Calistoga']">

@@ -26,7 +26,7 @@ const DarkModeButton = () => {
               className="bg-gray-100"
               onClick={() => setTheme('dark')}
             >
-              <Image className='bg-white' src="/moon.png" alt="logo" height="35" width="35" />
+              <Image src="/moon.png" alt="logo" height="35" width="35" />
             </button>
           )}</>
     );

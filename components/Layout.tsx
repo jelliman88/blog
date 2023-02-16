@@ -17,7 +17,7 @@ const Layout= ({ children }:Props) => {
         name="description"
         content="This is a blog with many intersting articles about Harry Potter."
       />
-      <link rel="icon" href="/favicon.ico" />
+      <link rel="icon" href="/logo.png" />
     </Head>
         <main className='flex flex-col justify-between h-screen'>
           <Nav />
