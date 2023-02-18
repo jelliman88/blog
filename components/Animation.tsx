@@ -9,50 +9,48 @@ interface ComponentProps {
 }
 
 var yposition = 0;
-var xposition = 0;
+var xposition = 200;
 var catcher = 200;
+var score = 0;
+
 
 const Animation: React.FC<ComponentProps> = (props: ComponentProps) => {
-	
-
-	//See annotations in JS for more information
 	const setup = (p5: p5Types, canvasParentRef: Element) => {
-		p5.createCanvas(400, 400).parent(canvasParentRef).center('horizontal');
-	};
-
-	const draw = (p5: p5Types) => {
-        p5.clear()
-        fallingBall(236,72,153, p5);
-        rainCatcher(p5);
+        document.getElementById('defaultCanvas0')?.classList.add('bg-red-200')
+        var x = (p5.windowWidth - 400) / 2;
+        var y = (p5.windowHeight - 400) / 2
+		p5.createCanvas(400, 400).parent(canvasParentRef).position(x,y);
         
-        if (catcher > xposition-20 && 
-            catcher < xposition+20 && 
-            yposition >= 380)
-        {
-            p5.textSize(20)
-            p5.fill(0)
-            p5.text("Yay!",200,200)
+	};
+    const draw = (p5: p5Types) => {
+        p5.clear()
+        fallingRain(236,72,153, p5);
+        rainCatcher(p5);
+        // is raindrop touching the top of the catcher 
+        if (yposition == 360)
+           {
+            const d = p5.mouseX - xposition
+            if (d >= -20 && d <= 20) {
+                score ++
+            }}
+        p5.textSize(40)
+        p5.textFont('Helvetica')
+        p5.fill(20)
+        p5.text(score,200,200)
             
-        }
 	};
 
     const rainCatcher = (p5: p5Types) =>{
-  
         const catcher = p5.mouseX
-        
         p5.rectMode(p5.CENTER)
         p5.fill(0)
         p5.rect(catcher,380,40,40)
         
       }
 
-      const fallingBall = (r: any,g: any,b: any, p5: p5Types) =>{
-
-        yposition++
-        
+      const fallingRain = (r: number,g: number,b: number, p5: p5Types) =>{
         p5.noStroke()
         p5.fill(r,g,b)
-      
         p5.triangle(xposition-10,yposition,xposition+10,yposition,xposition,yposition-40)
         p5.ellipse(xposition,yposition,20,20);
         
@@ -60,7 +58,7 @@ const Animation: React.FC<ComponentProps> = (props: ComponentProps) => {
         
         if (yposition > 450){
         yposition = 0;
-        xposition = p5.random(400);
+        xposition = p5.random(20,380);
         }  
         
       }

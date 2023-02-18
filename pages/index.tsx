@@ -10,7 +10,10 @@ const Index = () => {
                 </div>
                 
                 <div className='mt-20'>
-                <Animation />
+                <div className='p-24 hidden'>
+                    <Animation />
+                </div>
+                
                 </div>
                 
             
