@@ -33,7 +33,7 @@ const Home: NextPage<Props> = ({ articles }) => {
       <div className='flex flex-col sm:flex-row sm:justify-evenly'>
       {articles.map((article, i) => (
         filter === 'all' || article.seo?.fields.keywords?.includes(filter) ?
-        <ArticleLink key={i} article={article} types={types} />: null
+        <ArticleLink index={i} article={article} types={types} />: null
       )
       )}
       </div>
