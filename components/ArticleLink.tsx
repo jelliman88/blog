@@ -13,7 +13,7 @@ const ArticleLink = ({ article, index }: any) => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: index * 0.1 }}
       >
-        <Link href={`/article/${article.slug}`} className='group p-6 w-52 mx-auto my-4 border border-black border-4 rounded-lg shadow sm:flex sm:flex-wrap sm:justify-center sm:hover:border-pink-500 dark:border-white
+        <Link href={`/article/${article.slug}`} className='group p-6 w-52 mx-auto my-4 h-full border border-black border-4 rounded-lg shadow sm:flex sm:flex-wrap sm:justify-center sm:hover:border-pink-500 dark:border-white
         sm:transition sm:ease-in-out sm:hover:-translate-y-1 sm:hover:scale-110 duration-300'>
              
             <h2 className="text-lg text-center font-['Calistoga']">{article.title}</h2>

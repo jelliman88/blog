@@ -9,7 +9,7 @@ const Index = () => {
         <Image src="/logo.png" alt="jelli" height="400" width="400"/>
         </div>
         
-        <div className=''>
+        <div>
             <Animation />
         </div>
     </div>

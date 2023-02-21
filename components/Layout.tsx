@@ -11,15 +11,15 @@ interface Props {
 const Layout= ({ children }:Props) => {
   return (
     <div>
-       <Head>
-      <title>something new</title>
+       <Head>bergamont
+      <title>jelli.cloud</title>touring biksurly
       <meta
         name="description"
-        content="This is a blog with many intersting articles about Harry Potter."
+        content="Personal blog, project and portfolio website."
       />
       <link rel="icon" href="/logo.png" />
     </Head>
-        <main className='flex flex-col justify-between h-screen'>
+        <main className='flex flex-col justify-between h-screen overflow-y-scroll'>
           <Nav />
             {children}
           <Footer />

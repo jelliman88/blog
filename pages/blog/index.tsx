@@ -25,7 +25,7 @@ const Home: NextPage<Props> = ({ articles }) => {
     })
    
   return (
-    <div className='mb-auto'>
+    <>
       <div className='flex justify-center'>
       <Filter filter={filter} types={types} setFilter={setFilter} articles={articles} />
       </div>
@@ -38,7 +38,7 @@ const Home: NextPage<Props> = ({ articles }) => {
       )}
       </div>
       
-    </div>
+      </>
   );
 };
 
