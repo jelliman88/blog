@@ -24,7 +24,6 @@ const Nav: React.FC = () => {
           <span className="font-['Margarine'] text-pink-500">JELLI.CLOUD</span>
         </span>
       </Link>
-
       {showMenu ? (
         <div className="flex flex-col md:flex-row md:items-center">
           <Link
@@ -48,8 +47,16 @@ const Nav: React.FC = () => {
           >
             Portfolio
           </Link>
+          <Link
+            className="my-2 md:my-0 mx-5 hover:text-pink-500"
+            href="/kimbel"
+            onClick={handleClick}
+          >
+            Kimbel
+          </Link>
           <DarkModeButton />
         </div>
+        
       ) : (
         <button
           className="block md:hidden ml-auto p-2 focus:outline-none"
@@ -94,6 +101,13 @@ const Nav: React.FC = () => {
           onClick={handleClick}
         >
           Portfolio
+        </Link>
+        <Link
+          className="mx-5 hover:text-pink-500"
+          href="/kimbel"
+          onClick={handleClick}
+        >
+          Kimbel
         </Link>
         <DarkModeButton />
       </div>

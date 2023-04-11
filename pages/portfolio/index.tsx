@@ -27,11 +27,11 @@ const projectsArr = [{title: 'slolearner.net',
   ,
   websiteLink: 'https://jelli.cloud/portfolio',
   githubLink: 'https://github.com/jelliman88/blog'},
-  {title: 'Stock Tracking App',
-  description: 'Developed as an inhouse solution to keep track of stock in a warehouse. Its function is to handle data pulled daily from Tableau, clean, analyse and update the database.  Built using Django/Vanilla JS with full CRUD functionality. Data analysis using Pandas and Numpy.'
+  {title: 'Supermarket',
+  description: 'Inhouse webshop stock tracking app used by employees in our northern EU division. Built using Django/Vanilla JS with full CRUD functionality.'
   ,
-  websiteLink: 'http://jelliman.pythonanywhere.com',
-  githubLink: 'https://github.com/jelliman88/warehouse_stock_tracking'},
+  websiteLink: 'http://supermarket.eu.pythonanywhere.com',
+  githubLink: '#'},
   
 
 ]
