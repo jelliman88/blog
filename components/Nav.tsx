@@ -95,13 +95,6 @@ const Nav: React.FC = () => {
         >
           Portfolio
         </Link>
-        <Link
-          className="mx-5 hover:text-pink-500"
-          href="/kimbel"
-          onClick={handleClick}
-        >
-          Kimbel
-        </Link>
         <DarkModeButton />
       </div>
     </nav>
